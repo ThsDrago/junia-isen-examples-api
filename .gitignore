@@ -1,4 +1,17 @@
-# Ignore terraform vars
+# Fichiers d'état
+*.tfstate
+*.tfstate.backup
+
+# Fichiers de verrouillage (si vous ne souhaitez pas les versionner)
+*.terraform.lock.hcl
+
+# Répertoire de travail de Terraform
+.terraform/
+
+# Fichiers de sortie de planification (optionnel, mais recommandé pour éviter de versionner les plans)
+*.plan
+
+# Variables sensibles ou spécifiques à l'environnement
 terraform.tfvars
 
 # Byte-compiled / optimized / DLL files
