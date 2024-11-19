@@ -26,7 +26,7 @@ variable "subnet_address_prefixes" {
   default     = ["10.0.1.0/24"]
 }
 
-variable "my_subnet_name" {
+variable "subnet_name" {
   description = "App Service subnet name"
   type        = string
   default     = "app-service-subnet"

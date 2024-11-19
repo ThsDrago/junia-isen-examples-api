@@ -14,15 +14,23 @@ module "vnet" {
   depends_on = [module.resource_group]
 }
 
+module "database" {
+  source              = "./modules/database"
+  resource_group_name = var.resource_group_name
+  vnet_id             = module.vnet.vnet_id
+  location            = var.location
+  subnet_id           = module.vnet.subnet_id
 
-
+  depends_on = [module.resource_group]
+}
 
 /*
-
 module "web_app" {
   source              = "./modules/app_service"
   location            = var.location
   resource_group_name = var.resource_group_name
+
+  depends_on = [module.service_plan]
 }
 
 module "service_plan" {
@@ -30,5 +38,4 @@ module "service_plan" {
   location            = var.location
   resource_group_name = var.resource_group_name
 }
-
 */
