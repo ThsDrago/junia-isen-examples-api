@@ -1,0 +1,32 @@
+{
+  "version": 4,
+  "terraform_version": "1.9.8",
+  "serial": 82,
+  "lineage": "a1b3b38f-efb2-9ce3-80b0-38b99b1de0bb",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.resource_group",
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "resource_group",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/c322c00f-5180-4ac2-909a-ef9dc1935027/resourceGroups/project-cloud-resource-group",
+            "location": "francecentral",
+            "managed_by": "",
+            "name": "project-cloud-resource-group",
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
