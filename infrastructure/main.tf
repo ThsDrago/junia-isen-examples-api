@@ -10,6 +10,8 @@ module "vnet" {
   location                 = var.location
   vnet_address_space       = var.vnet_address_space 
   subnet_address_prefixes  = var.subnet_address_prefixes
+
+  depends_on = [module.resource_group]
 }
 
 
