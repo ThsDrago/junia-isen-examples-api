@@ -24,18 +24,10 @@ module "database" {
   depends_on = [module.resource_group]
 }
 
-/*
-module "web_app" {
-  source              = "./modules/app_service"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-
-  depends_on = [module.service_plan]
-}
-
 module "service_plan" {
   source              = "./modules/app_service"
   location            = var.location
   resource_group_name = var.resource_group_name
+
+  depends_on = [module.resource_group]
 }
-*/

@@ -1,5 +1,5 @@
 resource "azurerm_service_plan" "service_plan" {
-  name                = "my-service-plan"
+  name                = "ccp-service-plan"
   resource_group_name = var.resource_group_name
   location            = var.location
   os_type             = "Linux"
@@ -7,10 +7,12 @@ resource "azurerm_service_plan" "service_plan" {
 }
 
 resource "azurerm_linux_web_app" "web_app" {
-  name                = "web-app"
+  name                = "ccp-web-app"
   resource_group_name = var.resource_group_name
   location            = var.location
   service_plan_id     = azurerm_service_plan.service_plan.id
 
   site_config {}
+
+  depends_on = [azurerm_service_plan.service_plan]
 }

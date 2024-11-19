@@ -12,7 +12,6 @@ resource "azurerm_postgresql_flexible_server" "postgres-server" {
   public_network_access_enabled = false
   
   depends_on = [azurerm_private_dns_zone_virtual_network_link.ccp_dns_zone_link]
-
 }
 
 resource "azurerm_postgresql_flexible_server_firewall_rule" "firewall" {
