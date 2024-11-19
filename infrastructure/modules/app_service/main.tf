@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "service_plan" {
 }
 
 resource "azurerm_linux_web_app" "web_app" {
-  name                = "ccp-web-app"
+  name                = var.web_app_name
   resource_group_name = var.resource_group_name
   location            = var.location
   service_plan_id     = azurerm_service_plan.service_plan.id

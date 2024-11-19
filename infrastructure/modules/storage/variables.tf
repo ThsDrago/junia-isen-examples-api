@@ -8,7 +8,7 @@ variable "location" {
   type        = string
 }
 
-variable "web_app_name" {
-  description = "The name of the web app"
-  type        = string
+variable "subnet_id" {
+    description = "The id of the vnet"
+    type        = string
 }

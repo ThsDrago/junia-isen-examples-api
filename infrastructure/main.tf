@@ -28,6 +28,16 @@ module "service_plan" {
   source              = "./modules/app_service"
   location            = var.location
   resource_group_name = var.resource_group_name
+  web_app_name        = var.web_app_name
+
+  depends_on = [module.resource_group]
+}
+
+module "storage" {
+  source              = "./modules/storage"
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  subnet_id           = module.vnet.subnet_id
 
   depends_on = [module.resource_group]
 }

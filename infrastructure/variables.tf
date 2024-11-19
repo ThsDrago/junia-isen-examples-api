@@ -31,3 +31,8 @@ variable "subnet_name" {
   type        = string
   default     = "app-service-subnet"
 }
+
+variable "web_app_name" {
+  description = "Nom de la Web App"
+  type        = string
+}
