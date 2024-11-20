@@ -16,3 +16,11 @@ resource "azurerm_storage_container" "blob_container" {
   storage_account_id  = azurerm_storage_account.blob_storage.id
   container_access_type = "private"
 }
+
+resource "azurerm_role_assignment" "blob_storage_iam" {
+  principal_id         = var.principal_id
+  role_definition_name = "Storage Blob Data Contributor"
+  scope                = azurerm_storage_account.blob_storage.id
+
+  depends_on = [azurerm_storage_account.blob_storage]
+}

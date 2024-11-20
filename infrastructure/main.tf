@@ -24,7 +24,7 @@ module "database" {
   depends_on = [module.resource_group]
 }
 
-module "service_plan" {
+module "app_service" {
   source              = "./modules/app_service"
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -34,10 +34,11 @@ module "service_plan" {
 }
 
 module "storage" {
-  source              = "./modules/storage"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  subnet_id           = module.vnet.subnet_id
+  source               = "./modules/storage"
+  resource_group_name  = var.resource_group_name
+  location             = var.location
+  subnet_id            = module.vnet.subnet_id
+  principal_id         = module.app_service.identity_principal_id
 
-  depends_on = [module.resource_group]
+  depends_on = [module.resource_group, module.app_service]
 }
