@@ -21,7 +21,7 @@ module "database" {
   location            = var.location
   subnet_id           = module.vnet.subnet_id
 
-  depends_on = [module.resource_group]
+  depends_on = [module.resource_group, module.vnet]
 }
 
 module "app_service" {
