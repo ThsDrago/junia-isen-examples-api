@@ -1,5 +1,6 @@
 from fastapi.testclient import TestClient
 from examples.examples import app
+import os
 
 client = TestClient(app)
 
@@ -11,6 +12,8 @@ def test_read_main():
 
 def test_read_quotes():
     # Tester la route "/quotes"
+    print("STORAGE_ACCOUNT_URL:", os.getenv("STORAGE_ACCOUNT_URL"))
+
     response = client.get("/quotes")
     
     # Afficher la réponse pour inspection
