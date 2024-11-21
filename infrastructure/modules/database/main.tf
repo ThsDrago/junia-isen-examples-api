@@ -1,5 +1,5 @@
 resource "azurerm_postgresql_flexible_server" "ccp_postgres_server" {
-  name                          = "ccp-postgres-server"
+  name                          = "ccp-postgres-server-${var.random_suffix}"
   resource_group_name           = var.resource_group_name
   location                      = var.location
   version                       = "16"
@@ -17,7 +17,7 @@ resource "azurerm_postgresql_flexible_server" "ccp_postgres_server" {
 }
 
 resource "azurerm_postgresql_flexible_server_firewall_rule" "ccp_firewall" {
-  name                        = "ccp-firewall"
+  name                        = "ccp-firewall-${var.random_suffix}"
   server_id                   = azurerm_postgresql_flexible_server.ccp_postgres_server.id
   start_ip_address            = "0.0.0.0"
   end_ip_address              = "255.255.255.255"
@@ -29,14 +29,14 @@ resource "azurerm_private_dns_zone" "ccp_dns_zone" {
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "ccp_dns_zone_link" {
-  name                  = "ccp-dns-zone-link"
+  name                  = "ccp-dns-zone-link-${var.random_suffix}"
   resource_group_name   = var.resource_group_name
   private_dns_zone_name = azurerm_private_dns_zone.ccp_dns_zone.name
   virtual_network_id    = var.vnet_id
 }
 
 resource "azurerm_postgresql_flexible_server_database" "ccp_database" {
-  name      = "ccp-database"
+  name      = "ccp-database-${var.random_suffix}"
   server_id = azurerm_postgresql_flexible_server.ccp_postgres_server.id
   collation = "en_US.utf8"
   charset   = "UTF8"

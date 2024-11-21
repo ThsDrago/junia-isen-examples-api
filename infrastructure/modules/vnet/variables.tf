@@ -17,3 +17,8 @@ variable "subnet_address_prefixes" {
   description = "The address prefixes for the subnet"
   type        = list(string)
 }
+
+variable "random_suffix" {
+  description = "Suffixe aléatoire pour les noms des ressources"
+  type        = string
+}

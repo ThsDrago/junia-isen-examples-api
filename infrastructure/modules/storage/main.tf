@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "blob_storage" {
-  name                     = "ccpstorageaccount"
+  name                     = "storageaccount${var.random_suffix}"
   resource_group_name      = var.resource_group_name
   location                 = var.location
   account_tier             = "Standard"
@@ -12,7 +12,7 @@ resource "azurerm_storage_account" "blob_storage" {
 }
 
 resource "azurerm_storage_container" "blob_container" {
-  name                  = "ccp-container"
+  name                  = "ccp-container-${var.random_suffix}"
   storage_account_id  = azurerm_storage_account.blob_storage.id
   container_access_type = "private"
 }

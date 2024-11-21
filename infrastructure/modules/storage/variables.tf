@@ -23,3 +23,8 @@ variable "principal_id" {
   description = "The principal ID of the managed identity from the App Service"
   type        = string
 }
+
+variable "random_suffix" {
+  description = "Suffixe aléatoire pour les noms des ressources"
+  type        = string
+}

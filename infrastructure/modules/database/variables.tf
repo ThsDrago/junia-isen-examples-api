@@ -17,3 +17,8 @@ variable "subnet_id" {
     description = "The id of the vnet"
     type        = string
 }
+
+variable "random_suffix" {
+  description = "Suffixe aléatoire pour les noms des ressources"
+  type        = string
+}
