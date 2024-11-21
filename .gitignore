@@ -1,6 +1,7 @@
 # Fichiers d'état
 *.tfstate
 *.tfstate.backup
+terraform.tfstate.*
 
 # Fichiers de verrouillage (si vous ne souhaitez pas les versionner)
 *.terraform.lock.hcl
