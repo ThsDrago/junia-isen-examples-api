@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "blob_storage" {
-  name                     = "storageaccount${var.random_suffix}"
+  name                     = "ccpstorageaccount"
   resource_group_name      = var.resource_group_name
   location                 = var.location
   account_tier             = "Standard"
