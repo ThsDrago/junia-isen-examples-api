@@ -19,10 +19,10 @@ variable "role_definition_name" {
   default     = "Storage Blob Data Contributor"
 }
 
-variable "principal_id" {
+/*variable "principal_id" {
   description = "The principal ID of the managed identity from the App Service"
   type        = string
-}
+}*/
 
 variable "random_suffix" {
   description = "Suffixe aléatoire pour les noms des ressources"

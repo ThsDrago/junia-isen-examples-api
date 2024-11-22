@@ -47,7 +47,6 @@ module "storage" {
   resource_group_name  = module.resource_group.resource_group_name
   location             = var.location
   subnet_id            = module.vnet.subnet_id
-  principal_id         = module.app_service.identity_principal_id
   random_suffix       = random_string.common.result
 
   depends_on = [module.resource_group, module.app_service]
