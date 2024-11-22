@@ -12,6 +12,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   STORAGE_ACCOUNT_URL: ${{ secrets.STORAGE_ACCOUNT_URL }}
+  AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
 
 permissions:
   contents: read
