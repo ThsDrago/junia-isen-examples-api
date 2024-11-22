@@ -49,7 +49,7 @@ def get_environment_variable(key, default=None):
 @app.get("/quotes")
 def read_quotes():
     try:
-        account_url = get_environment_variable("STORAGE_ACCOUNT_URL")
+        account_url = os.getenv("STORAGE_ACCOUNT_URL")
         default_credential = DefaultAzureCredential(process_timeout=2)
         blob_service_client = BlobServiceClient(account_url, credential=default_credential)
 
