@@ -17,11 +17,14 @@ resource "azurerm_storage_container" "blob_container" {
   container_access_type = "private"
 }
 
-/*resource "azurerm_role_assignment" "blob_storage_iam" {
-  principal_id         = var.principal_id
-  role_definition_name = "Storage Blob Data Contributor"
-  scope                = azurerm_storage_account.blob_storage.id
+resource "azurerm_storage_blob" "blob_storage" {
+  name = "quotes.json"
+  # Get the quotes.json file from the modules/storage directory and upload it to the storage account
+  source                 = "${path.module}/quotes.json"
+  storage_account_name   = azurerm_storage_account.blob_storage.name
+  storage_container_name = azurerm_storage_container.blob_container.name
+  type                   = "Block"
+}
 
-  depends_on = [azurerm_storage_account.blob_storage]
-}*/
+
 
