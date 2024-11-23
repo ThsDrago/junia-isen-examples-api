@@ -51,3 +51,13 @@ module "storage" {
 
   depends_on = [module.resource_group, module.app_service]
 }
+
+module "gateway" {
+  source              = "./modules/gateway"
+  gateway_name        = var.gateway_name
+  resource_group_name = module.resource_group.resource_group_name
+  location            = var.location
+  subnet_id           = module.vnet.app_gateway_subnet_id
+
+  depends_on = [ module.vnet ]
+}
