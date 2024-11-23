@@ -11,7 +11,6 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
 
 permissions:
   contents: read
@@ -30,6 +29,11 @@ jobs:
       ## I found this on the internet, it is a custom action that installs uv
       ## Giving u the link if you wanna check it out : 
       ## https://github.com/yezz123/setup-uv
+      - name: Set up Azure credentials
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
       - name: Set environment variables
         run: echo "STORAGE_ACCOUNT_URL=${{ secrets.STORAGE_ACCOUNT_URL }}" >> $GITHUB_ENV
       - uses: yezz123/setup-uv@v4
