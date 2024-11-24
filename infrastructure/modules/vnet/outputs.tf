@@ -19,5 +19,12 @@ output "subnet_id" {
 }
 
 output "app_gateway_subnet_id" {
+  description = "Subnet ID for gateway"
   value = azurerm_subnet.app_gateway_subnet.id
 }
+
+output "app_service_subnet_id" {
+  description = "Subnet ID for app service"
+  value = azurerm_subnet.app_service_subnet.id
+}
+

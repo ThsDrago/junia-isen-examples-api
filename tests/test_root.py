@@ -12,7 +12,7 @@ def test_read_main():
 
 def test_read_quotes():
     # Tester la route "/quotes"
-    print("STORAGE_ACCOUNT_URL:", os.getenv("STORAGE_ACCOUNT_URL"))
+    print("STORAGE_ACCOUNT_URL:", os.getenv("storage_account_url"))
 
     response = client.get("/quotes")
     

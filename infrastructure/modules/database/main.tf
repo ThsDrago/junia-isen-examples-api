@@ -19,8 +19,8 @@ resource "azurerm_postgresql_flexible_server" "ccp_postgres_server" {
 resource "azurerm_postgresql_flexible_server_firewall_rule" "ccp_firewall" {
   name                        = "ccp-firewall-${var.random_suffix}"
   server_id                   = azurerm_postgresql_flexible_server.ccp_postgres_server.id
-  start_ip_address            = "0.0.0.0"
-  end_ip_address              = "255.255.255.255"
+  start_ip_address            = "10.0.3.0"
+  end_ip_address              = "10.0.3.255"
 }
 
 resource "azurerm_private_dns_zone" "ccp_dns_zone" {

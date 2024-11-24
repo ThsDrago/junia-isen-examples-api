@@ -29,13 +29,6 @@ jobs:
       ## I found this on the internet, it is a custom action that installs uv
       ## Giving u the link if you wanna check it out : 
       ## https://github.com/yezz123/setup-uv
-      - name: Set up Azure credentials
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-      - name: Set environment variables
-        run: echo "STORAGE_ACCOUNT_URL=${{ secrets.STORAGE_ACCOUNT_URL }}" >> $GITHUB_ENV
       - uses: yezz123/setup-uv@v4
       - run: uv --version
       - name: Install dependencies
@@ -54,7 +47,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Log in to the Container registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -62,21 +55,21 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           ## Raw value latest is used to get the latest docker image
-          ## Although we also sha to ensure that the image is unique (and that we don't overwrite the latest image)
+          ## Although we also sha to ensure that the image is unique (and that we don't overwrite the latest image)
           tags: |
             type=ref,event=branch
             type=sha
             type=raw,value=latest
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v4
-
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
