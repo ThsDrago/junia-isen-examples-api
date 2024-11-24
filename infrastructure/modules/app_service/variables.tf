@@ -64,21 +64,21 @@ variable "app_service_subnet_id" {
 }
 
 variable "docker_registry_url" {
-  description = "The administrator password for the PostgreSQL database"
+  description = "The docker registery url"
   type        = string
 }
 
 variable "docker_image" {
-  description = "The administrator password for the PostgreSQL database"
+  description = "The docker image"
   type        = string
 }
 
 variable "docker_registry_password" {
-  description = "The administrator password for the PostgreSQL database"
+  description = "The docker registry password"
   type        = string
 }
 
 variable "docker_registry_username" {
-  description = "The administrator password for the PostgreSQL database"
+  description =  "The docker registery username"
   type        = string
 }
